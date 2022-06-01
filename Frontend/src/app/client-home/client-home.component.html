@@ -1,0 +1,39 @@
+<div id="patient-home">
+    <div id="heading" >
+         <h2>!! Warm Greetings {{current_user.name}} !!</h2>
+         <hr>
+         <p>LINE UP YOUR MEETINGS HERE!!</p>
+     </div>
+     <div class="options">
+         <div routerLink="/leads">
+             <img src="../../assets/asset-3.webp" alt="">
+             <h4>Schedule a meet</h4>
+             
+         </div>
+          
+         
+     </div>
+    
+     <br>
+     <div class="upcoming-appointments" style="float:down;">
+         <hr>
+         <h3>Upcoming appointments</h3>
+         <div *ngIf="!appointments ; then noAppointments; else appointmentsThere"></div>
+         <ng-template #noAppointments>
+             <p>No upcoming appointments</p>
+         </ng-template>
+ 
+         <ng-template #appointmentsThere>
+             <div>
+                 <div *ngFor="let app of appointments" class="appointment-card">
+                     <p><span class="heading">ORGANISATION:</span>  {{app.lead_name}}</p>
+                     <p><span class="heading">CLIENT:</span>  {{app.client_name}}</p>
+                     <p><span class="heading">Query description:</span>  {{app.problem}}</p>
+                     <p><span class="heading">Appointment time:</span>  {{app.time | date:'medium'}}</p>
+                 </div>
+             </div>
+         </ng-template>
+     </div>
+     <br>
+     <br>
+ </div>

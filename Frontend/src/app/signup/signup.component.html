@@ -1,0 +1,43 @@
+<div #signup_component id="signup_component">
+    <p>Create an account below</p>
+    <form class="signup-form form">
+        <input type="text" [(ngModel)]="signupDetails.username" name="username" placeholder="Username">
+        <br>
+        <span class="username-error error"></span>
+        <br>
+        <input type="text" [(ngModel)]="signupDetails.name" name="name" placeholder="Name">
+        <br>
+        <span class="name-error error"></span>
+        <br>
+        <input type="email" [(ngModel)]="signupDetails.email" name="email" placeholder="Email">
+        <br>
+        <span class="email-error error"></span>
+        <br>
+        <input type="password" name="password" [(ngModel)]="signupDetails.password" placeholder="Password">
+        <br>
+        <span class="password-error error"></span>
+        <br>
+        <input type="password" name="confirm_password" [(ngModel)]="signupDetails.confirm_password" placeholder="Confirm password">
+        <br>
+        <br>
+        <select name="user-role" id="user-role" (change)="changeUserType()" [(ngModel)]="signupDetails.user_role">
+            <option disabled selected value> -- Create an account for -- </option>
+            <option value="Lead">Lead</option>
+            <option value="Client">Client</option>
+        </select>
+        <br>
+        <span class="user-role-error error"></span>
+        <br>
+
+      
+            <div class="remember-me">
+                <input type="checkbox" id="remember-me" name="remember_me" [(ngModel)]="signupDetails.remember_me">
+                <p>Remember me</p>
+            </div>
+        <button (click)="signupSubmit()" class="box-button">Signup</button>
+    </form>
+    <div class="inline">
+        <p>Login instead</p>
+        <button routerLink="/login" class="no-box-button">Login</button>
+    </div>
+</div>

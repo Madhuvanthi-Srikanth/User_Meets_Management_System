@@ -1,0 +1,45 @@
+<div class="profile-data">
+    <div>
+        <h1>LEAD</h1>
+        <span class="material-symbols-outlined" (click)="editProfileDiv()">edit</span>
+        <div class="profile-data-display">
+            <fieldset class="personal-details">
+                <legend>LEAD Details</legend>
+                <div *ngFor="let item of doctor_fields" class="details">
+                    <div *ngIf="userData[item]">
+                        <span class="heading">{{ item | titlecase }}</span>
+                        <br>
+                        <span class="value">{{ userData[item] }}</span>
+                    </div>
+                </div>
+               
+                <br>
+            </fieldset>
+        </div>
+        <div class="profile-data-edit" style="display: none;">
+            <form>
+                <fieldset class="personal-details">
+                    <legend>LEAD Details</legend>
+                    <div class="details">
+                        <span class="heading">Username</span>
+                        <br>
+                        <input type="text" name="username" value="{{ userData.username }}" readonly [(ngModel)]="new_user_data.username">
+                        <br>
+                        <span class="heading">Name</span>
+                        <br>
+                        <input type="text" name="name" value="{{userData.name}}" [(ngModel)]="new_user_data.name">
+                        <br>
+                        <span class="heading">Email</span>
+                        <br>
+                        <input type="email" name="email" value="{{userData.email}}" [(ngModel)]="new_user_data.email">
+                        <br>
+                      
+                    </div>
+                    <div class="buttons-div">
+                        <button class="box-button-green" (click)="saveEdit()">Save</button>
+                        <button class="box-button-red" (click)="cancelEdit()">Cancel</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>

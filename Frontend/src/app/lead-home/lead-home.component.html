@@ -1,0 +1,25 @@
+<div id="lead-home">
+    <div id="heading">
+        
+        <h2>Warm Greetings {{current_user.name}}!!</h2>
+        <hr>
+        <p>YOUR MEETINGS </p>
+        
+    </div>
+    
+    <div *ngIf="appointments.length>0; then appointmentsThere; else noAppointments"></div>
+    <ng-template #appointmentsThere>
+        <div class="appointment-schedule">
+            <div *ngFor="let app of appointments" class="appointment-card">
+                <p><span class="heading">CLIENT:</span>  {{app.client_name}}</p>
+                <p><span class="heading">Time:</span> {{app.time | date:'medium'}}</p>
+                <p><span class="heading">Query:</span> {{app.problem}}</p>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template #noAppointments>
+        <div class="no-apps">
+            <p>No appointments scheduled for now!</p>
+        </div>
+    </ng-template>
+</div>

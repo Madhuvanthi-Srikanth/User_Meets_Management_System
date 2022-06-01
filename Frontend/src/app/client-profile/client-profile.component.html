@@ -1,0 +1,64 @@
+<div class="profile-data">
+    <div>
+        <h1>Profile</h1>
+        <span class="material-symbols-outlined" (click)="editProfileDiv()">edit</span>
+        <div class="profile-data-display">
+            <fieldset class="personal-details">
+                <legend>CLIENT Details</legend>
+                <div *ngFor="let item of client_fields" class="details">
+                    <div *ngIf="userData[item]">
+                        <span class="heading">{{ item | titlecase }}</span>
+                        <br>
+                        <span class="value">{{ userData[item] }}</span>
+                    </div>
+                </div>
+                <div *ngIf="!userData['phone']" class="details">
+                    <p class="no-box-button" (click)="editProfileDiv()">CONTACT NUMBER
+                </div>
+                <div *ngIf="!userData['address']" class="details">
+                    <p class="no-box-button" (click)="editProfileDiv()">COMAPNY ADDRESS</p>
+                </div>
+                <br>
+            </fieldset>
+        </div>
+        <div class="profile-data-edit" style="display: none;">
+            <form>
+                <fieldset class="personal-details">
+                    <legend>ADD Details</legend>
+                    <div class="details">
+                        <span class="heading">Username</span>
+                        <br>
+                        <input type="text" name="username" value="{{ userData.username }}" readonly [(ngModel)]="new_user_data.username">
+                        <br>
+                        <span class="heading">Name</span>
+                        <br>
+                        <input type="text" name="name" value="{{userData.name}}" [(ngModel)]="new_user_data.name">
+                        <br>
+                        <span class="heading">Email</span>
+                        <br>
+                        <input type="email" name="email" value="{{userData.email}}" [(ngModel)]="new_user_data.email">
+                        <br>
+                        <!-- <span class="heading">Date of Birth</span>
+                        <br>
+                        <input type="date" name="dob" id="" value="{{userData.dob}}" [(ngModel)]="new_user_data.dob">
+                        <br> -->
+                        <!-- <span class="heading">Gender</span>
+                        <br>
+                        <input type="text" name="gender" id="" value="{{userData.gender}}" readonly [(ngModel)]="new_user_data.gender">
+                        <br> -->
+                        <span class="heading">CONTACT NUMBER </span> 
+                        <br>
+                        <input type="text" name="phone" id="" value="{{userData.phone}}" [(ngModel)]="new_user_data.phone">
+                        <br>
+                        <span class="heading">COMPANY ADDRESS</span>
+                        <br>
+                        <input type="text" name="address" id="" value="{{userData.address}}" [(ngModel)]="new_user_data.address">
+                    </div>
+                    <div class="buttons-div">
+                        <button class="box-button-green" (click)="saveEdit()">Save</button>
+                        <button class="box-button-red" (click)="cancelEdit()">Cancel</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>

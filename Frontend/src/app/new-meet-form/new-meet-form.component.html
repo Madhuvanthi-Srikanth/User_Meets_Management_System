@@ -1,0 +1,26 @@
+<div id="new-appointment" class="popup">
+    <form>
+        <label for="client">USERNAME</label>
+        <br>
+        <input type="text" name="client" value="{{current_user.name}}" [(ngModel)]="appointment_details.client_username">
+        <br>
+        <label for="lead">MEET with</label>
+        <br>
+        <input type="text" name="lead" value="{{lead_name}} .Org" readonly>
+        <br>
+        <label for="time">Preferred MEET TIME</label>
+        <br>
+        <input type="datetime-local" name="time" [(ngModel)]="appointment_details.time">
+        <br>
+        <label for="problem">State your query in brief</label>
+        <br>
+        <textarea name="problem" cols="30" rows="10" [(ngModel)]="appointment_details.problem">Type here</textarea>
+        <br>
+
+        <br>
+        <div class="options">
+            <button class="box-button-red" (click)="closeAppointmentForm()">Cancel</button>
+            <button class="box-button-green" (click)="scheduleAppointment()">Confirm</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,63 @@
+.error{
+    color: red;
+    font-size: 13px;
+}
+
+.box-button{
+    /* background-color: #6fd69d; */
+    background-color: rgba(26, 24, 92, 0.7);
+    border: none;
+    padding: 10px;
+}
+.no-box-button{
+    /* color: #6fd69d; */
+    color: rgb(164, 131, 236);
+    border: none;
+    background-color: rgb(21, 13, 40);
+    font-size: 15px;
+}
+
+*{
+    /* background-image: -webkit-image-set(); */
+    /* text-align: left; */
+    text-justify:distribute-all-lines;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bolder;
+    font-style: italic;
+}
+
+input, select{
+    width: 250px;
+    height: 35px;
+    margin-bottom: 7px;
+}
+
+input[type=radio]{
+    width: 30px;
+    height: 13px
+}
+
+.inline{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 250px;
+    margin-left: 41%;
+    margin-bottom: 0px;
+}
+
+.inline>p{
+    font-size: 14px;
+}
+
+.box-button-green{
+    border: none;
+    padding: 10px;
+    background-color: #6f8ec3
+}
+
+.box-button-red{
+    border: none;
+    padding: 10px;
+    background-color: rgb(240, 204, 204)
+}

@@ -1,0 +1,38 @@
+
+
+
+<!-- <div *ngIf="user_type==='Lead'">
+    <app-lead-home></app-lead-home>
+</div>
+<div *ngIf="user_type==='Client'">
+    <app-client-home></app-client-home>
+</div>
+<div *ngIf="user_type==='Admin'">
+    <app-admin-home></app-admin-home>
+</div> -->
+
+<!-- <ng-template #LeadHome>
+    <app-lead-home></app-lead-home>
+</ng-template> 
+<ng-template #ClientHome>
+    <app-client-home></app-client-home>
+</ng-template> 
+<ng-template #AdminHome>
+    <app-admin-home></app-admin-home>
+</ng-template>  -->
+
+<!-- <app-admin-home></app-admin-home> -->
+
+
+<!-- <ng-template *ngIf="user_type === 'Lead'"><app-lead-home></app-lead-home></ng-template>
+<ng-template *ngIf="user_type === 'Client'"><app-client-home></app-client-home></ng-template>
+<ng-template *ngIf="user_type === 'admin' "><app-admin-home></app-admin-home></ng-template> -->
+
+<ng-container *ngIf="user_type === 'lead'; else elseif1"><app-lead-home></app-lead-home></ng-container>
+<ng-template #elseif1>
+    <ng-container *ngIf="user_type === 'admin'; else elseif2"><app-admin-home></app-admin-home></ng-container>
+</ng-template>
+<ng-template #elseif2>
+    <ng-container *ngIf="user_type === 'client'; else else1"><app-client-home></app-client-home></ng-container>
+</ng-template>
+<ng-template #else1> <app-index></app-index></ng-template>

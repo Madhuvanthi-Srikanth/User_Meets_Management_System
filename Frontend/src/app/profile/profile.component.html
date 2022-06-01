@@ -1,0 +1,9 @@
+<div *ngIf="user_type==='Lead'; then leadProfile; else clientProfile"></div>
+
+<ng-template #leadProfile>
+    <app-lead-profile></app-lead-profile>
+</ng-template>
+
+<ng-template #clientProfile>
+    <app-client-profile></app-client-profile>
+</ng-template>

@@ -1,0 +1,31 @@
+<div id="doctors-div" class="not-popup">
+    <div class="options">
+        <select name="specializations-filter" id="specializations-filter" (change)="applyFilter()">
+            
+        </select>
+        <!-- <input type="text" name="lead-search" id="search-bar" placeholder="Search for Leads">
+        <button (click)="searchLead()" class="box-button">Go</button> -->
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="doctors-list" *ngIf="!leads || leads.length>0; else noResults">
+        <div class="doctor-card" *ngFor="let doc of leads" id="{{doc.username}}">
+            <p class="name">{{doc.name}}</p>
+            
+            <p class="email">{{doc.email}}</p>
+            <div class="options">
+                <button class="box-button-green" (click)="getAppointmentView(doc.username, doc.name)">Schedule MEETING?</button>
+            </div>
+        </div>
+    </div>
+    <ng-template #noResults>
+        <div style="text-align: center;">
+            No Leads found
+        </div>
+    </ng-template>
+</div>
+
+<div id="appointment-view" style="display: none;" >
+    <app-new-meet-form [lead_uname]="meet_lead_uname1" [lead_name]="meet_lead_name1"></app-new-meet-form>
+</div>
